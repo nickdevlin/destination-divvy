@@ -1,0 +1,13 @@
+<div class="container">
+
+<h1>Edit your post in <%= @post.category.name %></h1>
+
+<form method="post" action="/posts/<%= @post.id %>">
+  <input type="text" name="title" value="<%= @post.title %>"><br>
+  <input type="text" name="body" value="<%= @post.body %>"><br>
+  <input type="text" name="price" value="<%= @post.price %>"><br>
+  <input type="hidden" name="_method" value="put">
+  <input type="submit" value="Update Post">
+</form>
+
+</div>

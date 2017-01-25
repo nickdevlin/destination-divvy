@@ -18,6 +18,8 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem 'faker'
+
 group :test do
   gem 'faker'
   gem 'rspec'
