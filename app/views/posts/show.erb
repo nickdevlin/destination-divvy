@@ -4,8 +4,8 @@
 
 <p><%= @post.body %></p>
 
-<% if @key %>
-  <p>Visit this address to edit your post:<br>http://localhost:9393/posts/<%= @post.id %>/edit?key=<%= @post.key %></p>
+<% if @key_for_poster %>
+  <p>Visit this address to edit your post:<br>http://localhost:9393/posts/<%= @post.id %>/edit?key=<%= @key_for_poster %></p>
 <% end %>
 
 <a href="/">Home</a> | <a href="/categories/<%= @post.category_id %>"><%= @post.category.name %></a>

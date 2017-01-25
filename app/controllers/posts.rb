@@ -6,7 +6,7 @@ end
 
 post "/posts" do
   @post = Post.create(params[:post])
-  @key = @post.key
+  @key_for_poster = @post.key
 
   erb :"posts/show"
 end
@@ -30,7 +30,7 @@ end
 put "/posts/:post_id" do
   @post = Post.find_by(id: params[:post_id])
   @post.update_attributes(title: params[:title], body: params[:body], price: params[:price])
-  @key = @post.key
+  @key_for_poster = @post.key
 
   erb :"posts/show"
 end
