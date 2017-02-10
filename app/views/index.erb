@@ -1,9 +1,17 @@
 <div class="container">
 
-  <h1>Nickslist</h1>
+  <h1>Where will you pick up your Divvy?</h1>
 
-  <% @categories.each do |category| %>
-    * <a href="/categories/<%= category.id %>"><%= category.name %></a><br>
-  <% end %>
+
+
+<form method="post" action="/stations">
+    <select name="origin">
+      <% @stations.each do |station| %>
+        <option><%= station["stationName"] %></option>
+      <% end %>
+    </select>
+    <br><br>
+    <input type="submit">
+  </form>
 
 </div>
