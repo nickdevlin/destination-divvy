@@ -22,3 +22,7 @@ form {
 * {
   font-family: Futura, sans-serif;
 }
+
+iframe {
+  border: 1px solid black;
+}

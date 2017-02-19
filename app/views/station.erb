@@ -10,6 +10,7 @@
 
   <form method="post" action="/stations/<%= @station["id"] %>">
     <select name="destination">
+        <option>Pick a station</option>
       <% @stations.each do |station| %>
         <option name="<%= station["id"] %>"><%= station["stationName"] %></option>
       <% end %>
@@ -22,13 +23,13 @@
 
   <% if @destination %>
 
-  <h2>You're headed to <%= @destination["stationName"] %>!</h2>
+  <h2>You're headed to <%= @destination["stationName"] %>.</h2>
 
-    There are <%= @destination["availableDocks"] %> available docks at <%= @destination["stationName"] %>.<br><br>
+    There are <%= @destination["availableDocks"] %> docks available at <%= @destination["stationName"] %>.<br><br>
 
     Here's the route you should take:<br><br>
 
-    <iframe width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBjnlfGxY5jl3iFiFJInV1tJ5BTVRVa920
+    <iframe id="map" width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBjnlfGxY5jl3iFiFJInV1tJ5BTVRVa920
       &origin=<%= @station["latitude"] %>,<%= @station["longitude"] %>
       &destination=<%= @destination["latitude"] %>,<%= @destination["longitude"] %>&mode=bicycling"></iframe>
 

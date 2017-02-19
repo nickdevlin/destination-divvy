@@ -16,15 +16,6 @@ post '/stations' do
   erb :station
 end
 
-get '/stations/:id' do
-  uri = URI('https://feeds.divvybikes.com/stations/stations.json')
-  @stations = JSON.parse(Net::HTTP.get(uri))["stationBeanList"]
-
-  @station = @stations.find {|station| station["id"] == params[:id].to_i }
-
-  erb :station
-end
-
 post '/stations/:id' do
   uri = URI('https://feeds.divvybikes.com/stations/stations.json')
   @stations = JSON.parse(Net::HTTP.get(uri))["stationBeanList"]
