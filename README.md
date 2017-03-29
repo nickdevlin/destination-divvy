@@ -2,4 +2,6 @@
 
 ## Summary
 
-This is going to change how you ride a bike. Details TBA.
+Seamlessly integrate walking and biking directions to get anywhere in Chicago using the Divvy bikeshare system.
+
+See a preliminary build here: https://destination-divvy.herokuapp.com
