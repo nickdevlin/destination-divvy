@@ -1,3 +1,3 @@
 get '/' do
-  redirect '/categories'
+  redirect '/stations'
 end

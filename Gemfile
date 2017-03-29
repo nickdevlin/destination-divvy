@@ -16,7 +16,7 @@ gem 'activerecord', '~>4.1'
 
 gem 'rake'
 
-gem 'shotgun'
+gem 'shotgun', '~>0.9.2'
 
 gem 'faker'
 
