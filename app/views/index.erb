@@ -1,15 +1,15 @@
 <div class="container">
 
-  <h1>Where will you pick up your Divvy?</h1>
+  <h1>Destination Divvy</h1>
 
-<form method="post" action="/stations">
-    <select name="origin">
-      <% @stations.each do |station| %>
-        <option><%= station["stationName"] %></option>
-      <% end %>
-    </select>
-    <br><br>
-    <input type="submit">
-</form>
+  <div id="locationField1">
+    <input id="autocomplete1" placeholder="Enter your starting point"
+           onFocus="geolocate()" type="text"></input>
+  </div>
+  <br>
+  <div id="locationField2">
+    <input id="autocomplete2" placeholder="Enter your destination"
+           onFocus="geolocate()" type="text"></input>
+  </div>
 
 </div>
