@@ -1,26 +1,17 @@
 require 'net/http'
 require 'json'
+require_relative '../helpers/gps_helper'
 
 get '/stations' do
-  uri = URI('https://feeds.divvybikes.com/stations/stations.json')
-  @stations = JSON.parse(Net::HTTP.get(uri))["stationBeanList"]
 
   erb :index
 end
 
 post '/stations' do
-  uri = URI('https://feeds.divvybikes.com/stations/stations.json')
-  @stations = JSON.parse(Net::HTTP.get(uri))["stationBeanList"]
-  @station = @stations.find {|station| station["stationName"] == params["origin"] }
+  @starting_point = GPSHelper.geocode(params["starting_point"])
+  @end_point = GPSHelper.geocode(params["end_point"])
 
-  erb :station
+  erb :index
 end
 
-post '/stations/:id' do
-  uri = URI('https://feeds.divvybikes.com/stations/stations.json')
-  @stations = JSON.parse(Net::HTTP.get(uri))["stationBeanList"]
-  @destination = @stations.find {|station| station["stationName"] == params["destination"] }
-  @station = @stations.find {|station| station["id"] == params[:id].to_i }
 
-  erb :station
-end
