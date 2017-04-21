@@ -23,7 +23,9 @@ module GPSHelper
 
   def self.find_nearest_station(coordinate_array)
     uri = URI('https://feeds.divvybikes.com/stations/stations.json')
-    @stations = JSON.parse(Net::HTTP.get(uri))["stationBeanList"]
+    stations = JSON.parse(Net::HTTP.get(uri))["stationBeanList"]
+    stations.each do |station|
+    end
   end
 
   def self.degrees_to_radians(degrees)
