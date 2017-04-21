@@ -2,14 +2,16 @@
 
   <h1>Destination Divvy</h1>
 
-  <div id="locationField1">
-    <input id="autocomplete1" placeholder="Enter your starting point"
-           onFocus="geolocate()" type="text"></input>
-  </div>
-  <br>
-  <div id="locationField2">
-    <input id="autocomplete2" placeholder="Enter your destination"
-           onFocus="geolocate()" type="text"></input>
-  </div>
+  <% if @starting_lat %>
+    <%= @starting_lat %>
+  <% end %>
+
+  <form action="/stations" method="POST">
+    <input type="text" class="search-box" name="starting_point" placeholder="Enter your starting point">
+    <br><br>
+    <input type="text" class="search-box" name="end_point" placeholder="Enter your destination">
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
 
 </div>

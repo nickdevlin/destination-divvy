@@ -56,26 +56,27 @@ html, body {
     width: 100px;
     color: #303030;
   }
+
   #address {
     border: 1px solid #000090;
     background-color: #f0f0ff;
     width: 480px;
     padding-right: 2px;
   }
+
   #address td {
     font-size: 10pt;
   }
+
   .field {
     width: 99%;
   }
-  .slimField {
-    width: 80px;
-  }
-  .wideField {
-    width: 200px;
-  }
+
   #locationField1, #locationField2 {
     height: 20px;
     margin-bottom: 2px;
   }
 
+  .search-box {
+    width: 500px;
+  }
