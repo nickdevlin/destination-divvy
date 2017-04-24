@@ -2,10 +2,6 @@
 
   <h1>Destination Divvy</h1>
 
-  <% if @distance %>
-    <%= @distance %>
-  <% end %>
-
   <form action="/stations" method="POST">
     <input type="text" class="search-box" name="starting_point" placeholder="Enter your starting point">
     <br><br>
@@ -13,5 +9,22 @@
     <br><br>
     <input type="submit" value="Submit">
   </form>
+  <br>
+  <% if @first_walk && @bike_ride && @second_walk %>
+    <h2>First step: Let's pick up a bike</h2>
+    <% @first_walk.each do |step| %>
+      <br>- <%= step["html_instructions"] %> <br> <%= step["duration"]["text"] %> - <%= step["distance"]["text"] %><br>
+    <% end %>
+    <h2>Here's the route we're going to ride.</h2>
+    <% @bike_ride.each do |step| %>
+      <br>- <%= step["html_instructions"] %> <br> <%= step["duration"]["text"] %> - <%= step["distance"]["text"] %><br>
+    <% end %>
+    <h2>Drop off the bike. We're almost there.</h2>
+    <% @second_walk.each do |step| %>
+      <br>- <%= step["html_instructions"] %> <br> <%= step["duration"]["text"] %> - <%= step["distance"]["text"] %><br>
+    <% end %>
+  <% end %>
+
+  <i style="font-size:0.8em">Directions provided by Google Maps. Walking and bicycling directions are in beta. Use caution – This route may contain areas that may be missing sidewalks or pedestrian paths or aren't suited for bicycling.</i>
 
 </div>
