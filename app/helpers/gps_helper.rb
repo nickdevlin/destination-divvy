@@ -21,18 +21,27 @@ module GPSHelper
     return earth_radius_km * c
   end
 
-  def self.find_nearest_station(coordinate_array)
+  def self.find_nearest_station(gps_coordinates)
     uri = URI('https://feeds.divvybikes.com/stations/stations.json')
     stations = JSON.parse(Net::HTTP.get(uri))["stationBeanList"]
-    nearest_station = stations.min_by { |station| (compare_two_points(coordinate_array, [ station["latitude"], station["longitude" ] ])) }
-    p "*********************"
-    p coordinate_array
-    p "*********************"
-    return nearest_station["stationName"]
+    nearest_station = stations.min_by { |station| (compare_two_points(gps_coordinates, [ station["latitude"], station["longitude" ] ])) }
+    return nearest_station
   end
 
   def self.degrees_to_radians(degrees)
     return degrees * (Math::PI / 180)
+  end
+
+  def self.walking_directions(start, finish)
+    uri = URI('https://maps.googleapis.com/maps/api/directions/json?origin=' + start[0].to_s + ',' + start[1].to_s + '&destination=' + finish[0].to_s + ',' + finish[1].to_s + '&mode=walking&key=' + GOOGLE_API_KEY)
+    directions = JSON.parse(Net::HTTP.get(uri))["routes"][0]["legs"][0]["steps"]
+    return directions
+  end
+
+  def self.biking_directions(start, finish)
+    uri = URI('https://maps.googleapis.com/maps/api/directions/json?origin=' + start[0].to_s + ',' + start[1].to_s + '&destination=' + finish[0].to_s + ',' + finish[1].to_s + '&mode=biking&key=' + GOOGLE_API_KEY)
+    directions = JSON.parse(Net::HTTP.get(uri))["routes"][0]["legs"][0]["steps"]
+    return directions
   end
 end
 
