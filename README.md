@@ -6,4 +6,4 @@ Seamlessly integrate walking and biking directions to get anywhere in Chicago us
 
 See a preliminary build here: https://destination-divvy.herokuapp.com
 
-UPDATE (4/20): Not working at the moment, as I'm integrating the search aspect that finds the nearest Divvy station to given GPS coordinate. Come back soon! It's real close.
+UPDATE (4/24): It works! Still planning to mess with CSS to make it display a little cleaner.
