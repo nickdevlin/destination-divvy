@@ -11,7 +11,7 @@ post '/stations' do
   starting_point = GPSHelper.geocode(params["starting_point"])
   end_point = GPSHelper.geocode(params["end_point"])
 
-  @distance = GPSHelper.compare_two_points(starting_point, end_point)
+  @distance = GPSHelper.find_nearest_station(starting_point)
 
   erb :index
 end
