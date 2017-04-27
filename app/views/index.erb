@@ -12,19 +12,37 @@
   <br>
   <% if @first_walk && @bike_ride && @second_walk %>
     <h2>First step: Let's pick up a bike</h2>
+
+    <iframe id="map" width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBjnlfGxY5jl3iFiFJInV1tJ5BTVRVa920
+      &origin=<%= @starting_point[0] %>,<%= @starting_point[1] %>
+      &destination=<%= @start_station["latitude"] %>,<%= @start_station["longitude"] %>&mode=walking"></iframe>
+
     <% @first_walk.each do |step| %>
-      <br>- <%= step["html_instructions"] %> <br> <%= step["duration"]["text"] %> - <%= step["distance"]["text"] %><br>
+      - <%= step["html_instructions"] %> <br> <%= step["duration"]["text"] %> - <%= step["distance"]["text"] %><br><br>
     <% end %>
+
     <h2>Here's the route we're going to ride.</h2>
+
+    <iframe id="map" width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBjnlfGxY5jl3iFiFJInV1tJ5BTVRVa920
+      &origin=<%= @start_station["latitude"] %>,<%= @start_station["longitude"] %>
+      &destination=<%= @end_station["latitude"] %>,<%= @end_station["longitude"] %>&mode=bicycling"></iframe>
+
     <% @bike_ride.each do |step| %>
-      <br>- <%= step["html_instructions"] %> <br> <%= step["duration"]["text"] %> - <%= step["distance"]["text"] %><br>
+      - <%= step["html_instructions"] %> <br> <%= step["duration"]["text"] %> - <%= step["distance"]["text"] %><br><br>
     <% end %>
+
     <h2>Drop off the bike. We're almost there.</h2>
+
+    <iframe id="map" width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBjnlfGxY5jl3iFiFJInV1tJ5BTVRVa920
+      &origin=<%= @end_station["latitude"] %>,<%= @end_station["longitude"] %>
+      &destination=<%= @end_point[0] %>,<%= @end_point[1] %>&mode=walking"></iframe>
+
     <% @second_walk.each do |step| %>
-      <br>- <%= step["html_instructions"] %> <br> <%= step["duration"]["text"] %> - <%= step["distance"]["text"] %><br>
+      - <%= step["html_instructions"] %> <br> <%= step["duration"]["text"] %> - <%= step["distance"]["text"] %><br><br>
     <% end %>
   <% end %>
 
-  <i style="font-size:0.8em">Directions provided by Google Maps. Walking and bicycling directions are in beta. Use caution – This route may contain areas that may be missing sidewalks or pedestrian paths or aren't suited for bicycling.</i>
+  <br><br>
+  <i style="font-size:0.8em">Directions provided by Google Maps. Walking and bicycling directions are in beta. Use caution – This route may contain areas missing sidewalks or pedestrian paths or that aren't suited for bicycling.</i>
 
 </div>
