@@ -3,7 +3,7 @@
 #      http://stackoverflow.com/questions/7243486/why-do-you-need-require-bundler-setup
 ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../../Gemfile', __FILE__)
 
-GOOGLE_API_KEY = "AIzaSyAOmgyNN8aHGAGn22H3I1v3baXHlBhrqY8"
+GOOGLE_API_KEY = "AIzaSyBdo2gG-I_y4QRzEt4YZCp7O4otRzNv7a8"
 
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 

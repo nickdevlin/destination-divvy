@@ -66,6 +66,13 @@ iframe {
     margin-bottom: 2px;
   }
 
-  .search-box {
+  #starting-box {
+    top: 0px;
+    left: 0px;
+    width: 500px;
+  }
+  #end-box {
+    top: 0px;
+    left: 0px;
     width: 500px;
   }

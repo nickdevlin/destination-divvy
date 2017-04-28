@@ -3,9 +3,9 @@
   <h1>Destination Divvy</h1>
 
   <form action="/stations" method="POST">
-    <input type="text" class="search-box" name="starting_point" placeholder="Enter your starting point">
+    <input type="text" id="starting-box" name="starting_point" placeholder="Enter your starting point">
     <br><br>
-    <input type="text" class="search-box" name="end_point" placeholder="Enter your destination">
+    <input type="text" id="end-box" name="end_point" placeholder="Enter your destination">
     <br><br>
     <input type="submit" value="Submit">
   </form>
@@ -13,7 +13,7 @@
   <% if @first_walk && @bike_ride && @second_walk %>
     <h2>First step: Let's pick up a bike</h2>
 
-    <iframe id="map" width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBjnlfGxY5jl3iFiFJInV1tJ5BTVRVa920
+    <iframe id="map" width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBdo2gG-I_y4QRzEt4YZCp7O4otRzNv7a8
       &origin=<%= @starting_point[0] %>,<%= @starting_point[1] %>
       &destination=<%= @start_station["latitude"] %>,<%= @start_station["longitude"] %>&mode=walking"></iframe>
 
@@ -23,7 +23,7 @@
 
     <h2>Here's the route we're going to ride.</h2>
 
-    <iframe id="map" width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBjnlfGxY5jl3iFiFJInV1tJ5BTVRVa920
+    <iframe id="map" width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBdo2gG-I_y4QRzEt4YZCp7O4otRzNv7a8
       &origin=<%= @start_station["latitude"] %>,<%= @start_station["longitude"] %>
       &destination=<%= @end_station["latitude"] %>,<%= @end_station["longitude"] %>&mode=bicycling"></iframe>
 
@@ -33,7 +33,7 @@
 
     <h2>Drop off the bike. We're almost there.</h2>
 
-    <iframe id="map" width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBjnlfGxY5jl3iFiFJInV1tJ5BTVRVa920
+    <iframe id="map" width="600" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBdo2gG-I_y4QRzEt4YZCp7O4otRzNv7a8
       &origin=<%= @end_station["latitude"] %>,<%= @end_station["longitude"] %>
       &destination=<%= @end_point[0] %>,<%= @end_point[1] %>&mode=walking"></iframe>
 
