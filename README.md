@@ -2,8 +2,6 @@
 
 ## Summary
 
-Seamlessly integrate walking and biking directions to get anywhere in Chicago using the Divvy bikeshare system.
+Get walking and biking directions that allow you to use the Divvy bikeshare system to get wherever you want in Chicago.
 
-See a preliminary build here: https://destination-divvy.herokuapp.com
-
-UPDATE (4/24): It works! Still planning to mess with CSS to make it display a little cleaner.
+Check it out here: https://destination-divvy.herokuapp.com
