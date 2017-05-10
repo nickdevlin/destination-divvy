@@ -1,6 +1,9 @@
 
 source 'https://rubygems.org'
 
+# PostgreSQL driver
+gem 'pg'
+
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
@@ -15,6 +18,9 @@ gem 'rake'
 
 gem 'shotgun', '~>0.9.2'
 
+gem 'faker'
+
 group :test do
+  gem 'faker'
   gem 'rspec'
 end
