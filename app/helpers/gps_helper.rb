@@ -35,9 +35,6 @@ module GPSHelper
   def self.walking_directions(start, finish)
     uri = URI('https://maps.googleapis.com/maps/api/directions/json?origin=' + start[0].to_s + ',' + start[1].to_s + '&destination=' + finish[0].to_s + ',' + finish[1].to_s + '&mode=walking&key=' + GOOGLE_API_KEY)
     directions = JSON.parse(Net::HTTP.get(uri))["routes"][0]["legs"][0]["steps"]
-    p "************************"
-    p directions
-    p "*************************"
     return directions
   end
 
