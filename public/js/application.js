@@ -1,10 +1,8 @@
 $(document).ready(function() {
-  console.log("gotcha");
   google.maps.event.addDomListener(window, 'load', initAutocomplete);
 
   function initAutocomplete() {
-  // Create the autocomplete object, restricting the search to geographical
-  // location types.
+  // Create autocomplete object, restricting search to geographical location types.
   var autocomplete1 = new google.maps.places.Autocomplete(
       (document.getElementById('starting-box')),
       {types: ['geocode']});
@@ -13,8 +11,7 @@ $(document).ready(function() {
       {types: ['geocode']});
   }
 
-// Bias the autocomplete object to the user's geographical location,
-// as supplied by the browser's 'navigator.geolocation' object.
+// Bias autocomplete object to user's geographical location, supplied by browser's 'navigator.geolocation' object.
 
   function geolocate() {
     if (navigator.geolocation) {
